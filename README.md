@@ -21,37 +21,34 @@ Python 示例程序
 
 ## 前提
 
-- Linux 操作系统
-- 命令行终端，并且具有 sudo 权限
-- 安装完毕 Docker、Docker Compose 和 Python3.x。
+- Linux 操作系统(Clause 及 Python SDK 支持 Windows, 但是本示例程序并未在 Windows 上测试)
+- 安装完毕 Docker、Docker Compose
+- Python3.x
 
 ## 下载镜像
 
+下载示例代码
+
 ```
+git clone https://github.com/chatopera/clause-py-demo.git
 cd clause-py-demo
 docker-compose pull
 ```
 
 ## 安装依赖
 
-下载示例代码
-
-```
-git clone https://github.com/chatopera/clause-py-demo.git
-```
-
 安装 Clause Python Package
 
 ```
 cd clause-py-demo
-./scripts/install.sh
+pip install clause
 ```
 
 ## 运行服务
 
 ```
 cd clause-py-demo
-./scripts/start.sh
+docker-compose up
 ```
 
 上面命令会执行一段时间，并且输出日志，在控制台内，直到打印如下输出：
@@ -70,8 +67,10 @@ clause_1    | Thrift: Fri Sep 27 10:39:39 2019 TNonblockingServer: IO thread #0 
 ## 执行示例程序
 
 ```
-cd clause-py-demo
-./scripts/demo.sh
+cd clause-py-demo/src/demo  # demo目录
+CL_HOST=127.0.0.1           # 设置Clause服务的IP
+CL_PORT=8056                # 设置Clause服务的端口
+python bot.py               # 执行demo脚本
 ```
 
 该脚本执行的示例代码[bot.py](https://github.com/chatopera/clause-py-demo/blob/master/src/demo/bot.py)内有注释介绍如何完成：
@@ -183,7 +182,13 @@ cd clause-py-demo
 
 ```
 cd clause-py-demo
-./scripts/flush.sh
+docker-compose down
+docker-compose rm
+
+sudo rm -rf ./var/mysql/data/*
+sudo rm -rf ./var/activemq/data/*
+sudo rm -rf ./var/redis/data/*
+sudo rm -rf ./var/local/workarea/*
 ```
 
 ## 获得技术支持
@@ -195,6 +200,15 @@ https://github.com/chatopera/clause/issues
 
 Clause Wiki
 https://github.com/chatopera/clause/wiki
+
+- [概述](https://github.com/chatopera/clause/wiki/%E6%A6%82%E8%BF%B0)
+- [系统设计与实现](https://github.com/chatopera/clause/wiki/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0)
+- [服务部署](https://github.com/chatopera/clause/wiki/%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2)
+- [示例程序](https://github.com/chatopera/clause/wiki/%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8F)
+- [开发环境搭建](https://github.com/chatopera/clause/wiki/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA)
+- [系统集成](https://github.com/chatopera/clause/wiki/%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90)
+- [API 文档](https://chatopera.github.io/clause)
+- [FAQ](https://github.com/chatopera/clause/wiki/FAQ)
 
 ## 开源许可协议
 
