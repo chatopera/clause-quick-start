@@ -76,17 +76,17 @@ cd clause-py-demo
 
 该脚本执行的示例代码[bot.py](https://github.com/chatopera/clause-py-demo/blob/master/src/demo/bot.py)内有注释介绍如何完成：
 
-| 步骤 | 说明           |
-| ---- | -------------- |
-| 1    | 创建自定义词典 |
-| 2    | 添加自定义词条 |
-| 3    | 引用系统词典   |
-| 4    | 创建意图       |
-| 5    | 添加意图槽位   |
-| 6    | 添加意图说法   |
-| 7    | 训练机器人     |
-| 8    | 创建会话       |
-| 9    | 和机器人对话   |
+| 步骤 | 说明                   |
+| ---- | ---------------------- |
+| 1    | 清除该机器人之前的数据 |
+| 2    | 创建自定义词典         |
+| 3    | 添加自定义词条         |
+| 4    | 创建意图               |
+| 5    | 添加意图槽位           |
+| 6    | 添加意图说法           |
+| 7    | 训练机器人             |
+| 8    | 创建会话               |
+| 9    | 和机器人对话           |
 
 示例程序是一个点餐程序，输出内容如下：
 
@@ -121,7 +121,65 @@ cd clause-py-demo
 
 详细了解程序，[参考文档](https://github.com/chatopera/clause/wiki/%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8F)。
 
+## 输入文件
+
+需要强调的是，该示例程序使用了 [profile.json](https://github.com/chatopera/clause-py-demo/blob/master/src/demo/profile.json) 文件作为机器人的输入数据，该文件描述了机器人的词典、说法和槽位等信息。
+
+[profile.json](https://github.com/chatopera/clause-py-demo/blob/master/src/demo/profile.json) 内容如下：
+
+```
+{
+  "chatbotID": "bot007",
+  "dicts": [
+    {
+      "name": "food",
+      "dictwords": [
+        {
+          "word": "汉堡",
+          "synonyms": "汉堡包;漢堡;漢堡包"
+        }
+      ]
+    }
+  ],
+  "intents": [
+    {
+      "name": "take_out",
+      "description": "下外卖订单",
+      "slots": [
+        {
+          "name": "time",
+          "dictname": "@TIME",
+          "requires": true,
+          "question": "您想什么时候送到？"
+        },
+        {
+          "name": "loc",
+          "dictname": "@LOC",
+          "requires": true,
+          "question": "您希望该订单送到哪里？"
+        },
+        {
+          "name": "food",
+          "dictname": "food",
+          "requires": true,
+          "question": "您需要什么食物?"
+        }
+      ],
+      "utters": [
+        {
+          "utterance": "我想订一份{food}"
+        }
+      ]
+    }
+  ]
+}
+```
+
+开发者可以很方便的通过修改这个文件复用[bot.py](https://github.com/chatopera/clause-py-demo/blob/master/src/demo/bot.py)脚本训练和请求机器人对话服务。
+
 ## 停止服务并清空数据
+
+恢复该示例项目到初始状态。
 
 ```
 cd clause-py-demo
