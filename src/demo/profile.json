@@ -1,0 +1,57 @@
+{
+  "chatbotID": "bot007",
+  "dicts": [
+    {
+      "name": "food",
+      "dictwords": [
+        {
+          "word": "汉堡",
+          "synonyms": "汉堡包;漢堡;漢堡包"
+        },
+        {
+          "word": "蕃茄酱"
+        }
+      ]
+    }
+  ],
+  "intents": [
+    {
+      "name": "take_out",
+      "description": "下外卖订单",
+      "slots": [
+        {
+          "name": "time",
+          "dictname": "@TIME",
+          "requires": true,
+          "question": "您想什么时候送到？"
+        },
+        {
+          "name": "loc",
+          "dictname": "@LOC",
+          "requires": true,
+          "question": "您希望该订单送到哪里？"
+        },
+        {
+          "name": "food",
+          "dictname": "food",
+          "requires": true,
+          "question": "您需要什么食物?"
+        }
+      ],
+      "utters": [
+        {
+          "utterance": "我想订一份{food}"
+        },
+        {
+          "utterance": "我想点外卖"
+        },
+        {
+          "utterance": "我想点一份外卖，{time}用餐"
+        },
+        {
+          "utterance": "我想点一份{food}，送到{loc}"
+        }
+      ]
+    }
+  ]
+}

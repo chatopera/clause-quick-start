@@ -15,9 +15,9 @@
 
 Chatopera Language Understanding Service，Chatopera 语义理解服务
 
-```
-git clone https://github.com/chatopera/clause-py-demo.git
-```
+Python 示例程序
+
+![Sep-30-2019 23-14-13-min](https://user-images.githubusercontent.com/3538629/65892122-54ffc480-e3d8-11e9-8f64-c82f25694df5.gif)
 
 ## 前提
 
@@ -33,6 +33,12 @@ docker-compose pull
 ```
 
 ## 安装依赖
+
+下载示例代码
+
+```
+git clone https://github.com/chatopera/clause-py-demo.git
+```
 
 安装 Clause Python Package
 
@@ -61,8 +67,6 @@ clause_1    | Thrift: Fri Sep 27 10:39:39 2019 TNonblockingServer: IO thread #0 
 
 **代表服务成功启动！**
 
-> 注意：clause 服务会在成功启动前，重启若干次，因为它需要检查 MySQL 的初始化状态，MySQL 第一次启动因为需要初始化，所以需要 20-30 秒！
-
 ## 执行示例程序
 
 ```
@@ -87,23 +91,32 @@ cd clause-py-demo
 示例程序是一个点餐程序，输出内容如下：
 
 ```
-'chat human: 我想点外卖，来一份番茄'
-('chat bot: 您希望什么时候用餐 \n'
- " 意图: ChatSession(intent_name='takeOut', chatbotID='avtr003', uid='py', "
- "channel='testclient', resolved=False, id='8314A948BBB4CFD8FB92D2E800000000', "
- "entities=[Entity(name='vegetable', val='番茄', requires=True, "
- "dictname='food'), Entity(name='date', val='', requires=True, "
- "dictname='@TIME')], branch='dev', createdate='2019-09-27 10:41:01', "
- "updatedate='2019-09-27 10:41:01')")
-'chat human: 我想在下午三点用餐'
-('chat bot: None \n'
- " 意图: ChatSession(intent_name='takeOut', chatbotID='avtr003', uid='py', "
- "channel='testclient', resolved=True, id='8314A948BBB4CFD8FB92D2E800000000', "
- "entities=[Entity(name='vegetable', val='番茄', requires=True, "
- "dictname='food'), Entity(name='date', val='下午三点', requires=True, "
- "dictname='@TIME')], branch='dev', createdate='2019-09-27 10:41:01', "
- "updatedate='2019-09-27 10:41:01')")
-(venv-py3)
+[connect] clause host 127.0.0.1, port 8056
+[clean_up_bot] remove intent take_out
+[clean_up_bot] remove customdict food
+[create] dict name food
+[create] intent name take_out
+[create] intent slot time
+[create] intent slot loc
+[create] intent slot food
+[create] intent utter 我想订一份{food}
+[create] intent utter 我想点外卖
+[create] intent utter 我想点一份外卖，{time}用餐
+[create] intent utter 我想点一份{food}，送到{loc}
+[train] start to train bot ...
+[train] in progress ...
+[chat] human: 我想点外卖，来一份汉堡包
+[chat] bot: 您想什么时候送到？
+[chat] human: 今天下午5点
+[chat] bot: 您希望该订单送到哪里？
+[chat] human: 送到大望路5号20楼
+[chat] bot: 好的
+[session] 订单信息： 收集信息已完毕 True
+    intent: take_out
+    entities:
+        food: 汉堡包
+        time: 今天下午5点
+        loc: 大望路5号
 ```
 
 详细了解程序，[参考文档](https://github.com/chatopera/clause/wiki/%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8F)。

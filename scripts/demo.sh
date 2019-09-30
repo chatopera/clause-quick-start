@@ -5,6 +5,9 @@
 
 # constants
 baseDir=$(cd `dirname "$0"`;pwd)
+CL_HOST=127.0.0.1
+CL_PORT=8056
+
 # functions
 
 # main 
