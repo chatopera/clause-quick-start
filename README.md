@@ -22,8 +22,7 @@ Python 示例程序
 ## 前提
 
 - Linux 操作系统(Clause 及 Python SDK 支持 Windows, 但是本示例程序并未在 Windows 上测试)
-- 安装完毕 Docker、Docker Compose
-- Python3.x
+- 安装完毕 Docker、Docker Compose 和 Python3.x。
 
 ## 下载镜像
 
