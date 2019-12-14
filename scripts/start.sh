@@ -1,4 +1,4 @@
- #! /bin/bash 
+#! /bin/bash 
 ###########################################
 #
 ###########################################
@@ -10,4 +10,4 @@ baseDir=$(cd `dirname "$0"`;pwd)
 # main 
 [ -z "${BASH_SOURCE[0]}" -o "${BASH_SOURCE[0]}" = "$0" ] || return
 cd $baseDir/..
-docker-compose up
+docker-compose up -d

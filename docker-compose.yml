@@ -76,7 +76,7 @@ services:
       - "${MYSQL_PORT:-8055}:3306"
     volumes:
       - ./var/mysql/data:/var/lib/mysql
-      - ./src/clause/config/sql:/docker-entrypoint-initdb.d
+      - ./assets/clause/config/sql:/docker-entrypoint-initdb.d
     command: --max_allowed_packet=32505856
 
   activemq:

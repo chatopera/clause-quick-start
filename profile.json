@@ -3,6 +3,7 @@
   "dicts": [
     {
       "name": "food",
+      "type": "vocab",
       "dictwords": [
         {
           "word": "汉堡",
@@ -12,6 +13,11 @@
           "word": "蕃茄酱"
         }
       ]
+    },
+    {
+      "name": "phoneNumber",
+      "type": "regex",
+      "patterns": ["[1]([3-9])[0-9]{9}"]
     }
   ],
   "intents": [
@@ -36,6 +42,12 @@
           "dictname": "food",
           "requires": true,
           "question": "您需要什么食物?"
+        },
+        {
+          "name": "phone",
+          "dictname": "phoneNumber",
+          "requires": true,
+          "question": "您的手机号是什么？"
         }
       ],
       "utters": [

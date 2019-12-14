@@ -37,7 +37,7 @@ import json
 from time import sleep
 
 from clause import Client, Data
-from clause import CustomDict, SysDict, DictWord
+from clause import CustomDict, SysDict, DictWord, DictPattern, DictPatternCheck
 from clause import Intent, IntentSlot, IntentUtter
 from clause import Entity, ChatMessage, ChatSession
 
@@ -116,13 +116,21 @@ if __name__ == '__main__':
     if "dicts" in profile:
         for x in profile["dicts"]:
             print("[create] dict name %s" % x["name"])
-            bot.postCustomDict(Data(customdict=CustomDict(name=x["name"], chatbotID=chatbotID)))
-            if "dictwords" in x:
+            bot.postCustomDict(Data(customdict=CustomDict(name=x["name"], chatbotID=chatbotID, type=x["type"])))
+
+            # 词表词典
+            if x["type"] == "vocab" and "dictwords" in x:
                 [bot.putDictWord(Data(chatbotID=chatbotID,
                                       customdict=CustomDict(name=x["name"]),
                                       dictword=DictWord(word=y["word"],
                                                         synonyms=y["synonyms"] if "synonyms" in y else None))) for y in
                  x["dictwords"]]
+
+            # 正则表达式词典
+            if x["type"] == "regex" and "patterns" in x:
+                bot.putDictPattern(Data(customdict = CustomDict(name=x["name"], 
+                                            chatbotID=chatbotID),
+                            dictpattern = DictPattern(patterns = x["patterns"])))
 
     # create intent
     for x in profile["intents"]:
@@ -187,7 +195,7 @@ if __name__ == '__main__':
     resp = bot.chat(Data(session=ChatSession(id=session.id), message=ChatMessage(textMessage=text)))
     print("[chat] bot: %s" % (resp.message.textMessage))
 
-    dummy_chat = lambda msg: "今天下午5点" if "时候" in msg else "送到大望路5号20楼"
+    dummy_chat = lambda msg: "今天下午5点" if "时候" in msg else ( "送到大望路5号20楼" if "送到哪里" in msg else "我的联系方式15801818127" )
 
     text = dummy_chat(resp.message.textMessage)
     print("[chat] human: %s" % text)
@@ -197,6 +205,12 @@ if __name__ == '__main__':
     text = dummy_chat(resp.message.textMessage)
     print("[chat] human: %s" % text)
     resp = bot.chat(Data(session=ChatSession(id=session.id), message=ChatMessage(textMessage=text)))
+    print("[chat] bot: %s" % (resp.message.textMessage))
+    
+    text = dummy_chat(resp.message.textMessage)
+    print("[chat] human: %s" % text)
+    resp = bot.chat(Data(session=ChatSession(id=session.id), message=ChatMessage(textMessage=text)))
+    # print("[chat] bot: %s" % (resp.message.textMessage))
     print("[chat] bot: %s" % ("好的" if resp.session.resolved else "[错误] 返回不符合逻辑"))
 
     ## 打印意图和槽位的信息

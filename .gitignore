@@ -70,3 +70,4 @@ _deps
 **/*.cbp
 **/CMakeScripts
 **/compile_commands.json
+localrc
