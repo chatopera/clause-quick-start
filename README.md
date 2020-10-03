@@ -1,16 +1,5 @@
 [![Docker Layers](https://images.microbadger.com/badges/image/chatopera/clause:develop.svg)](https://microbadger.com/images/chatopera/clause:develop "Image layers") [![Docker Version](https://images.microbadger.com/badges/version/chatopera/clause:develop.svg)](https://microbadger.com/images/chatopera/clause:develop "Image version") [![Docker Pulls](https://img.shields.io/docker/pulls/chatopera/clause.svg)](https://hub.docker.com/r/chatopera/clause/) [![Docker Stars](https://img.shields.io/docker/stars/chatopera/clause.svg)](https://hub.docker.com/r/chatopera/clause/) [![Docker Commit](https://images.microbadger.com/badges/commit/chatopera/clause:develop.svg)](https://microbadger.com/images/chatopera/clause:develop "Image CommitID")
 
-<p align="center">
-  <b>Clause QQ 交流群：809987971， <a href="https://jq.qq.com/?_wv=1027&k=5JpEvBZ" target="_blank">点击链接加入群聊</a></b><br>
-  <img src="https://user-images.githubusercontent.com/3538629/64315364-6a095380-cfe4-11e9-8bf6-f15ce6e26e0a.png" width="200">
-</p>
-
-<p align="center">
-  <a href="https://github.com/chatopera/clause" target="_blank">
-      <img src="https://user-images.githubusercontent.com/3538629/64316956-e4d46d80-cfe8-11e9-8342-ec8a250074bf.png" width="800">
-  </a>
-</p>
-
 # Clause Quick Start Guide / Clause 快速开始
 
 Chatopera Language Understanding Service，Chatopera 语义理解服务
@@ -173,6 +162,11 @@ sudo rm -rf ./var/local/workarea/*
 创建新的 Issue
 https://github.com/chatopera/clause/issues
 
+<p align="center">
+  <b>Clause QQ 交流群：809987971， <a href="https://jq.qq.com/?_wv=1027&k=5JpEvBZ" target="_blank">点击链接加入群聊</a></b><br>
+  <img src="https://user-images.githubusercontent.com/3538629/64315364-6a095380-cfe4-11e9-8bf6-f15ce6e26e0a.png" width="200">
+</p>
+
 ## 了解更多
 
 Clause Wiki
@@ -186,6 +180,12 @@ https://github.com/chatopera/clause/wiki
 - [系统集成](https://github.com/chatopera/clause/wiki/%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90)
 - [API 文档](https://chatopera.github.io/clause)
 - [FAQ](https://github.com/chatopera/clause/wiki/FAQ)
+
+<p align="center">
+  <a href="https://github.com/chatopera/clause" target="_blank">
+      <img src="https://user-images.githubusercontent.com/3538629/64316956-e4d46d80-cfe8-11e9-8342-ec8a250074bf.png" width="800">
+  </a>
+</p>
 
 ## 开源许可协议
 
