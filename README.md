@@ -1,7 +1,7 @@
 [![Docker Layers](https://images.microbadger.com/badges/image/chatopera/clause:develop.svg)](https://microbadger.com/images/chatopera/clause:develop "Image layers") [![Docker Version](https://images.microbadger.com/badges/version/chatopera/clause:develop.svg)](https://microbadger.com/images/chatopera/clause:develop "Image version") [![Docker Pulls](https://img.shields.io/docker/pulls/chatopera/clause.svg)](https://hub.docker.com/r/chatopera/clause/) [![Docker Stars](https://img.shields.io/docker/stars/chatopera/clause.svg)](https://hub.docker.com/r/chatopera/clause/) [![Docker Commit](https://images.microbadger.com/badges/commit/chatopera/clause:develop.svg)](https://microbadger.com/images/chatopera/clause:develop "Image CommitID")
 
 <p align="center">
-  <b>Clause项目QQ交流群：809987971， <a href="https://jq.qq.com/?_wv=1027&k=5JpEvBZ" target="_blank">点击链接加入群聊</a></b><br>
+  <b>Clause QQ 交流群：809987971， <a href="https://jq.qq.com/?_wv=1027&k=5JpEvBZ" target="_blank">点击链接加入群聊</a></b><br>
   <img src="https://user-images.githubusercontent.com/3538629/64315364-6a095380-cfe4-11e9-8bf6-f15ce6e26e0a.png" width="200">
 </p>
 
@@ -11,27 +11,25 @@
   </a>
 </p>
 
-# Clause Tutorials for Python
+# Clause Quick Start Guide / Clause 快速开始
 
 Chatopera Language Understanding Service，Chatopera 语义理解服务
 
-Python 示例程序
+快速开始
 
 ![Sep-30-2019 23-14-13-min](https://user-images.githubusercontent.com/3538629/65892122-54ffc480-e3d8-11e9-8f64-c82f25694df5.gif)
 
 ## 前提
 
-- Linux 操作系统(Clause 及 Python SDK 支持 Windows, 但是本示例程序并未在 Windows 上测试)
-- 安装完毕 Docker、Docker Compose 和 Python3.x。
+- 已部署 Clause 服务，参考[部署文档](https://github.com/chatopera/clause/wiki/%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2)
 
 ## 下载镜像
 
 下载示例代码
 
 ```
-git clone https://github.com/chatopera/clause-py-demo.git
-cd clause-py-demo
-docker-compose pull
+git clone https://github.com/chatopera/clause-quick-start.git
+cd clause-quick-start
 ```
 
 ## 安装依赖
@@ -39,40 +37,20 @@ docker-compose pull
 安装 Clause Python Package
 
 ```
-cd clause-py-demo
+cd clause-quick-start
 pip install clause
 ```
-
-## 运行服务
-
-```
-cd clause-py-demo
-docker-compose up
-```
-
-上面命令会执行一段时间，并且输出日志，在控制台内，直到打印如下输出：
-
-```
-clause_1    | I0927 10:39:39.517269     1 main.cpp:80] serving on port 8056
-clause_1    | Thrift: Fri Sep 27 10:39:39 2019 TNonblockingServer: Serving with 1 io threads.
-clause_1    | Thrift: Fri Sep 27 10:39:39 2019 TNonblockingServer: using libevent 2.1.10-stable method epoll
-clause_1    | Thrift: Fri Sep 27 10:39:39 2019 TNonblocking: IO thread #0 registered for listen.
-clause_1    | Thrift: Fri Sep 27 10:39:39 2019 TNonblocking: IO thread #0 registered for notify.
-clause_1    | Thrift: Fri Sep 27 10:39:39 2019 TNonblockingServer: IO thread #0 entering loop...
-```
-
-**代表服务成功启动！**
 
 ## 执行示例程序
 
 ```
-cd clause-py-demo/src/demo  # demo目录
-CL_HOST=127.0.0.1           # 设置Clause服务的IP
-CL_PORT=8056                # 设置Clause服务的端口
+cd clause-quick-start       # demo目录
+CL_HOST=127.0.0.1           # 设置 Clause 服务的 IP 地址
+CL_PORT=8056                # 设置 Clause 服务的端口
 python bot.py               # 执行demo脚本
 ```
 
-该脚本执行的示例代码[bot.py](https://github.com/chatopera/clause-py-demo/blob/master/src/demo/bot.py)内有注释介绍如何完成：
+该脚本执行的示例代码[bot.py](https://github.com/chatopera/clause-quick-start/blob/master/bot.py)内有注释介绍如何完成：
 
 | 步骤 | 说明                   |
 | ---- | ---------------------- |
@@ -121,9 +99,9 @@ python bot.py               # 执行demo脚本
 
 ## 输入文件
 
-需要强调的是，该示例程序使用了 [profile.json](https://github.com/chatopera/clause-py-demo/blob/master/src/demo/profile.json) 文件作为机器人的输入数据，该文件描述了机器人的词典、说法和槽位等信息。
+需要强调的是，该示例程序使用了 [profile.json](https://github.com/chatopera/clause-quick-start/blob/master/profile.json) 文件作为机器人的输入数据，该文件描述了机器人的词典、说法和槽位等信息。
 
-[profile.json](https://github.com/chatopera/clause-py-demo/blob/master/src/demo/profile.json) 内容如下：
+[profile.json](https://github.com/chatopera/clause-quick-start/blob/master/profile.json) 内容如下：
 
 ```
 {
@@ -173,14 +151,14 @@ python bot.py               # 执行demo脚本
 }
 ```
 
-开发者可以很方便的通过修改这个文件复用[bot.py](https://github.com/chatopera/clause-py-demo/blob/master/src/demo/bot.py)脚本训练和请求机器人对话服务。
+开发者可以很方便的通过修改这个文件复用[bot.py](https://github.com/chatopera/clause-quick-start/blob/master/bot.py)脚本训练和请求机器人对话服务。
 
 ## 停止服务并清空数据
 
 恢复该示例项目到初始状态。
 
 ```
-cd clause-py-demo
+cd clause-quick-start
 docker-compose down
 docker-compose rm
 
@@ -211,9 +189,9 @@ https://github.com/chatopera/clause/wiki
 
 ## 开源许可协议
 
-Copyright (2019) <a href="https://www.chatopera.com/" target="_blank">北京华夏春松科技有限公司</a>
+Copyright (2019-2020) <a href="https://www.chatopera.com/" target="_blank">北京华夏春松科技有限公司</a>
 
-[Apache License Version 2.0](https://github.com/chatopera/clause-py-demo/blob/master/LICENSE)
+[Apache License Version 2.0](https://github.com/chatopera/clause-quick-start/blob/master/LICENSE)
 
 [![chatoper banner][co-banner-image]][co-url]
 

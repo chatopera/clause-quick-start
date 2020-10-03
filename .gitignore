@@ -71,3 +71,4 @@ _deps
 **/CMakeScripts
 **/compile_commands.json
 localrc
+.gitignore

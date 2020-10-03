@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 # ===============================================================================
 #
-# Copyright (c) 2019 Chatopera Inc. <https://www.chatopera.com> All Rights Reserved
+# Copyright (c) (2019-2020) Chatopera Inc. <https://www.chatopera.com> All Rights Reserved
 #
 #
-# File: /Users/hain/chatopera/clause-py-demo/src/demo/bot.py
+# File: /Users/hain/chatopera/clause-quick-start/bot.py
 # Author: Hai Liang Wang
 # Date: 2019-09-30:18:07:39
 #
