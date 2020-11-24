@@ -1,0 +1,384 @@
+{
+  "chatbotID": "chatbot001",
+  "dicts": [
+    {
+      "id": "b8cae689d8cf440d80e8280cacf769fe",
+      "name": "zhoubian_fujin",
+      "chatbotID": "chatbot001",
+      "type": "vocab",
+      "dictwords": [
+        {
+          "word": "周边",
+          "dictId": "b8cae689d8cf440d80e8280cacf769fe",
+          "synonyms": "周边;附近;这边;这儿;最近;周围"
+        }
+      ]
+    },
+    {
+      "id": "ed21593d5b62490eba4c136b5a60d082",
+      "name": "zhoubianchagnsuo",
+      "chatbotID": "chatbot001",
+      "type": "vocab",
+      "dictwords": [
+        {
+          "word": "便利店",
+          "dictId": "ed21593d5b62490eba4c136b5a60d082",
+          "synonyms": "可滴;全家;好德"
+        },
+        {
+          "word": "超市",
+          "dictId": "ed21593d5b62490eba4c136b5a60d082",
+          "synonyms": "超市;农工商;家乐福;沃尔玛"
+        },
+        {
+          "word": "广场",
+          "dictId": "ed21593d5b62490eba4c136b5a60d082",
+          "synonyms": "广场;商场"
+        },
+        {
+          "word": "学校",
+          "dictId": "ed21593d5b62490eba4c136b5a60d082",
+          "synonyms": "小学;幼儿园;中学;初中;高中;大学;学院;学校"
+        }
+      ]
+    },
+    {
+      "id": "e8d8f6f64de1440091ae2c93ea6cc165",
+      "name": "fuwuting",
+      "chatbotID": "chatbot001",
+      "type": "vocab",
+      "dictwords": [
+        {
+          "word": "服务厅",
+          "dictId": "e8d8f6f64de1440091ae2c93ea6cc165",
+          "synonyms": "服务中心;服务点;服务区;服务人员;售票厅"
+        }
+      ]
+    },
+    {
+      "id": "3A933C52919B485EA5524476006CA0BA",
+      "name": "food",
+      "chatbotID": "chatbot001",
+      "type": "vocab",
+      "dictwords": [
+        {
+          "word": "西红柿",
+          "dictId": "3A933C52919B485EA5524476006CA0BA",
+          "synonyms": "狼桃;柿子;番茄"
+        }
+      ]
+    },
+    {
+      "id": "89C5503853BF481B0FB6BB8C004C80BA",
+      "name": "phoneNumber",
+      "chatbotID": "chatbot001",
+      "type": "regex",
+      "dictpattern": {
+        "id": "9D8BFEE97BA05D1432499BC74088F60A",
+        "dictId": "89C5503853BF481B0FB6BB8C004C80BA",
+        "patterns": ["[1]([3-9])[0-9]{9}"],
+        "standard": "PCRE",
+        "createdate": "2020-10-23 10:31:44",
+        "updatedate": "2020-10-23 10:31:45"
+      }
+    },
+    {
+      "id": "fc23e116a18e4e238c8b9015707c4a42",
+      "name": "ask_where",
+      "chatbotID": "chatbot001",
+      "type": "vocab",
+      "dictwords": [
+        {
+          "word": "怎么走",
+          "dictId": "fc23e116a18e4e238c8b9015707c4a42",
+          "synonyms": "怎么走;什么方向;什么位置"
+        },
+        {
+          "word": "哪儿啊",
+          "dictId": "fc23e116a18e4e238c8b9015707c4a42",
+          "synonyms": "哪儿啊"
+        },
+        {
+          "word": "where",
+          "dictId": "fc23e116a18e4e238c8b9015707c4a42",
+          "synonyms": "where;whereis"
+        },
+        {
+          "word": "哪里",
+          "dictId": "fc23e116a18e4e238c8b9015707c4a42",
+          "synonyms": "哪儿;什么地方;哪;么地方;什么方向"
+        }
+      ]
+    },
+    {
+      "id": "5c201a6cd993464b96a46f9dc41268d8",
+      "name": "telphone",
+      "chatbotID": "chatbot001",
+      "type": "regex",
+      "dictpattern": {
+        "id": "2e843a1951f0490888e2799949acad20",
+        "dictId": "5c201a6cd993464b96a46f9dc41268d8",
+        "patterns": ["138000001"],
+        "standard": "PCRE",
+        "createdate": "2020-10-14 15:04:58",
+        "updatedate": "2020-10-14 15:04:58"
+      }
+    },
+    {
+      "id": "7fbe5a6fcd834ef78fc9970c192ca5f7",
+      "name": "cus_wc",
+      "chatbotID": "chatbot001",
+      "type": "vocab",
+      "dictwords": [
+        {
+          "word": "厕所",
+          "dictId": "7fbe5a6fcd834ef78fc9970c192ca5f7",
+          "synonyms": "厕所;洗手间;盥洗室;化妆室"
+        }
+      ]
+    }
+  ],
+  "intents": [
+    {
+      "id": "787b8942e67a4b33b352ed0df54a2f67",
+      "chatbotID": "chatbot001",
+      "name": "ask_wc",
+      "slots": [
+        { "name": "tel", "dictname": "telphone" },
+        {
+          "name": "toilet",
+          "dictname": "cus_wc",
+          "requires": true,
+          "question": "请问你要去哪里？？"
+        },
+        { "name": "ask_wc_where", "dictname": "ask_where" },
+        { "name": "zhoubian_fujin", "dictname": "zhoubian_fujin" }
+      ],
+      "utters": [
+        {
+          "id": "8074dd8f99b4491b907fbb8239f6b6bb",
+          "intentId": "787b8942e67a4b33b352ed0df54a2f67",
+          "utterance": "请问{toilet}在{ask_wc_where}"
+        },
+        {
+          "id": "bc3e360ab908442a87661f2c327d6f66",
+          "intentId": "787b8942e67a4b33b352ed0df54a2f67",
+          "utterance": "我要{toilet}"
+        },
+        {
+          "id": "a2ebf662359340148d1f957d1cc384c8",
+          "intentId": "787b8942e67a4b33b352ed0df54a2f67",
+          "utterance": "我想问你下，{toilet}在{ask_wc_where}"
+        },
+        {
+          "id": "43f1cf85e99e477da08b22fc9ee62316",
+          "intentId": "787b8942e67a4b33b352ed0df54a2f67",
+          "utterance": "我想去{toilet}"
+        },
+        {
+          "id": "f28bd496c2034edc9f111bf3fdb03611",
+          "intentId": "787b8942e67a4b33b352ed0df54a2f67",
+          "utterance": "{zhoubian_fujin}的{toilet}{ask_wc_where}"
+        },
+        {
+          "id": "b5e2602b025444d6909926b7ef91e1a9",
+          "intentId": "787b8942e67a4b33b352ed0df54a2f67",
+          "utterance": "{toilet}怎么走"
+        }
+      ]
+    },
+    {
+      "id": "9a32610f0bee4e98a3d7832614954205",
+      "chatbotID": "chatbot001",
+      "name": "nihao",
+      "utters": [
+        {
+          "id": "1d68703d85e149959d8886aa21e757c9",
+          "intentId": "9a32610f0bee4e98a3d7832614954205",
+          "utterance": "你好"
+        },
+        {
+          "id": "e762d69b4ed047569482420a9bb3c20a",
+          "intentId": "9a32610f0bee4e98a3d7832614954205",
+          "utterance": "您好"
+        }
+      ]
+    },
+    {
+      "id": "864f4f9e875d4e2981aa59abb393394d",
+      "chatbotID": "chatbot001",
+      "name": "thank",
+      "utters": [
+        {
+          "id": "777202fd58b745e181a1ccb619d6a21d",
+          "intentId": "864f4f9e875d4e2981aa59abb393394d",
+          "utterance": "谢谢你"
+        },
+        {
+          "id": "ff2b8e709175447ca54c161ffc7a11f9",
+          "intentId": "864f4f9e875d4e2981aa59abb393394d",
+          "utterance": "谢谢您"
+        },
+        {
+          "id": "a50fec45a9944ae8ae633643f5d6a2e5",
+          "intentId": "864f4f9e875d4e2981aa59abb393394d",
+          "utterance": "非常感谢您"
+        },
+        {
+          "id": "e8940997fa474c0ba99f31725986a560",
+          "intentId": "864f4f9e875d4e2981aa59abb393394d",
+          "utterance": "谢谢"
+        },
+        {
+          "id": "dc9419a4c9b4409eba439a8c766ee76b",
+          "intentId": "864f4f9e875d4e2981aa59abb393394d",
+          "utterance": "太感谢你了"
+        }
+      ]
+    },
+    {
+      "id": "48706FD72B9106CC426F7FCF703B71BB",
+      "chatbotID": "chatbot001",
+      "name": "orderTakeOut",
+      "slots": [
+        {
+          "name": "phone",
+          "dictname": "phoneNumber",
+          "requires": true,
+          "question": "您的手机号是什么"
+        },
+        {
+          "name": "location",
+          "dictname": "@LOC",
+          "requires": true,
+          "question": "外卖送到哪里"
+        },
+        {
+          "name": "vegetable",
+          "dictname": "food",
+          "requires": true,
+          "question": "您需要什么配菜"
+        },
+        {
+          "name": "date",
+          "dictname": "@TIME",
+          "requires": true,
+          "question": "您希望什么时候用餐"
+        }
+      ],
+      "utters": [
+        {
+          "id": "201ADA775D8D808988277EB350EB20BB",
+          "intentId": "48706FD72B9106CC426F7FCF703B71BB",
+          "utterance": "我想点外卖"
+        },
+        {
+          "id": "344E32F247BA69163791D33850DB10BB",
+          "intentId": "48706FD72B9106CC426F7FCF703B71BB",
+          "utterance": "帮我来一份{vegetable}，送到{location}"
+        },
+        {
+          "id": "DE233ACBD5A57A8517BB616750CB00BB",
+          "intentId": "48706FD72B9106CC426F7FCF703B71BB",
+          "utterance": "帮我来一份{vegetable}，送到{location}，我的手机号是{phone}"
+        },
+        {
+          "id": "e1947de786be46feb97288377507139b",
+          "intentId": "48706FD72B9106CC426F7FCF703B71BB",
+          "utterance": "我要点外卖"
+        }
+      ]
+    },
+    {
+      "id": "40520cbb9cc44aa88e68ed3cea870857",
+      "chatbotID": "chatbot001",
+      "name": "ask_fuwuting",
+      "slots": [
+        {
+          "name": "fuwuting",
+          "dictname": "fuwuting",
+          "requires": true,
+          "question": "你要去哪里"
+        }
+      ],
+      "utters": [
+        {
+          "id": "98fb67b4a77146e59ef0ab7ae0923e9e",
+          "intentId": "40520cbb9cc44aa88e68ed3cea870857",
+          "utterance": "{fuwuting}在哪"
+        },
+        {
+          "id": "5b309c8c76e54471adec7d6657bce3bd",
+          "intentId": "40520cbb9cc44aa88e68ed3cea870857",
+          "utterance": "我问下{fuwuting}在哪"
+        },
+        {
+          "id": "3908cf4150c540f28457cd0bda431a21",
+          "intentId": "40520cbb9cc44aa88e68ed3cea870857",
+          "utterance": "{fuwuting}怎么走"
+        },
+        {
+          "id": "075e15c8474f46738bb5acef2f23942c",
+          "intentId": "40520cbb9cc44aa88e68ed3cea870857",
+          "utterance": "{fuwuting}在哪个方向"
+        },
+        {
+          "id": "3340ae701539477dbf11ef76c3ede1ff",
+          "intentId": "40520cbb9cc44aa88e68ed3cea870857",
+          "utterance": "{fuwuting}在哪个位置"
+        }
+      ]
+    },
+    {
+      "id": "3116fd8b59344b92a42f69b5652bf69e",
+      "chatbotID": "chatbot001",
+      "name": "zhoubian",
+      "slots": [
+        {
+          "name": "zhoubianchagnsuo",
+          "dictname": "zhoubianchagnsuo",
+          "requires": true,
+          "question": "你要找什么场所"
+        },
+        { "name": "zhoubian_fujin", "dictname": "zhoubian_fujin" }
+      ],
+      "utters": [
+        {
+          "id": "9469922574ab438c8d8f1ead73db7182",
+          "intentId": "3116fd8b59344b92a42f69b5652bf69e",
+          "utterance": "{zhoubian_fujin}有什么{zhoubianchagnsuo}吗"
+        },
+        {
+          "id": "e035fef1ae2e4eb48d2f6f3bb95137bb",
+          "intentId": "3116fd8b59344b92a42f69b5652bf69e",
+          "utterance": "{zhoubian_fujin}的{zhoubianchagnsuo}怎么走"
+        },
+        {
+          "id": "af14ceb082424612a5fd731615f2737f",
+          "intentId": "3116fd8b59344b92a42f69b5652bf69e",
+          "utterance": "{zhoubian_fujin}的{zhoubianchagnsuo}哪儿"
+        },
+        {
+          "id": "6b80abeaafc0469eae23dfb8aaec5d37",
+          "intentId": "3116fd8b59344b92a42f69b5652bf69e",
+          "utterance": "我想去{zhoubian_fujin}的{zhoubianchagnsuo}"
+        },
+        {
+          "id": "a2bffc9a6c144d659e6200a189553e09",
+          "intentId": "3116fd8b59344b92a42f69b5652bf69e",
+          "utterance": "我要去{zhoubian_fujin}的{zhoubianchagnsuo}怎么走"
+        },
+        {
+          "id": "c90e08355c704ec6972ab29634b9c945",
+          "intentId": "3116fd8b59344b92a42f69b5652bf69e",
+          "utterance": "{zhoubian_fujin}的{zhoubianchagnsuo}都有哪些"
+        },
+        {
+          "id": "52af74b5c20346599d7bc4e912cf3fd1",
+          "intentId": "3116fd8b59344b92a42f69b5652bf69e",
+          "utterance": "{zhoubian_fujin}的{zhoubianchagnsuo}有哪些"
+        }
+      ]
+    }
+  ]
+}

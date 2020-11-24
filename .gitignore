@@ -72,3 +72,4 @@ _deps
 **/compile_commands.json
 localrc
 .gitignore
+.env

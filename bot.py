@@ -43,13 +43,23 @@ from clause import Entity, ChatMessage, ChatSession
 
 CL_HOST = ENVIRON["CL_HOST"] if "CL_HOST" in ENVIRON else "127.0.0.1"
 CL_PORT = ENVIRON["CL_PORT"] if "CL_PORT" in ENVIRON else 8056
+CL_PROFILE = ENVIRON["CL_PROFILE"] if "CL_PROFILE" in ENVIRON else "profile.json"
 
 def load_profile_json():
     '''
-    加载Profile文件，Profile文件描述了该机器人的输入的训练数据
+    加载 profile.json 文件，profile.json 文件描述了该机器人的输入的训练数据
     '''
-    with open(os.path.join(curdir, "profile.json"), 'r') as f:
-        return json.load(f)
+    if os.path.exists(CL_PROFILE):
+        print("load prfile.json with %s" % CL_PROFILE)
+        with open(CL_PROFILE, 'r') as f:
+            return json.load(f)
+    else:
+        profile_file = os.path.join(curdir, CL_PROFILE)
+        if os.path.exists(profile_file):
+            print("load prfile.json with %s" % profile_file)
+            with open(profile_file, 'r') as f:
+                return json.load(f)
+        raise "can not find file " + CL_PROFILE
 
 
 def check_profile(profile):
@@ -169,10 +179,12 @@ if __name__ == '__main__':
         raise Exception("Unexpected response with training bot request.")
 
     ## 训练是一个长时间任务，进行异步反馈
+    steps = 1
     while True:
         sleep(3)
         resp = bot.status(Data(chatbotID=chatbotID))
-        print("[train] in progress ...")
+        print("[train] in progress (%s) seconds ..." % (steps * 3))
+        steps += 1
         if resp.rc == 0:
             break
 
