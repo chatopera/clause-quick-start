@@ -186,6 +186,7 @@ if __name__ == '__main__':
         print("[train] in progress (%s) seconds ..." % (steps * 3))
         steps += 1
         if resp.rc == 0:
+            print("[train] done.")
             break
 
     '''
